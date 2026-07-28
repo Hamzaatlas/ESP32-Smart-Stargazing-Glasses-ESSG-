@@ -15,7 +15,33 @@ An open-source, head-tracked heads-up display (HUD) star map for smart glasses. 
 - **Display**: 240x240 or 240x320 SPI LCD (ST7789 / ILI9341)
 - *(Optional)* DS3231 RTC Module or GPS module for automatic location & time sync.
 
+## 🔌 Wiring summary:
+
+| Module   |ESP32 GPIO| 
+| -------- | -------- | 
+| MPU-6050 SDA   | GPIO 21  |
+| MPU-6050 SCL  | GPIO 22   | 
+| LCD MOSI   | GPIO 23   | 
+| LCD SCLK   | GPIO 18   |
+| LCD CS  | GPIO 5   | 
+| LCD DC  | GPIO 2   |
+| LCD RST  | GPIO 4   | 
+
+
 ## 🚀 Quick Start
 1. Flash MicroPython onto your ESP32.
+```bash
+# Install ampy
+pip install adafruit-ampy
+
+# Upload
+ampy --port /dev/ttyUSB0 put main.py
+```
 2. Edit `OBSERVER_LAT` and `OBSERVER_LON` in `main.py` with your coordinates.
-3. Upload `main.py` using `ampy` or Thonny IDE.
+
+```bash
+OBSERVER_LAT = 36.8    # degrees North  (default: Tunis, Tunisia)
+OBSERVER_LON = 10.18   # degrees East
+```
+
+4. Upload `main.py` using `ampy` or Thonny IDE.
